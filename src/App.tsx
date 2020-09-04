@@ -1,9 +1,14 @@
-import React from "react";
-import logo from "./logo.svg";
+import React, { FC } from "react";
+import { Home } from "./pages";
+
 import "./App.css";
 
-function App() {
-  return <div className="App">111</div>;
-}
+const App: FC = () => {
+  return (
+    <div className="App">
+      <Home />
+    </div>
+  );
+};
 
 export default App;
