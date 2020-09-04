@@ -1,12 +1,12 @@
-import React from "react";
-import Home from "./pages/Home/Home";
+import React, { FC } from "react";
+import { Home } from "./pages";
 
-function App() {
+const App: FC = () => {
   return (
     <div className="App">
       <Home />
     </div>
   );
-}
+};
 
 export default App;
