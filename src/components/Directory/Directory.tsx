@@ -51,10 +51,8 @@ const sectionsData: Section[] = [
 ];
 
 const Directory: FC = () => {
-  const [sections, setSections] = React.useState<Section[]>(sectionsData);
-
-  const munuItemsJSX = sections.map(({ id, imageUrl, title, large }) => (
-    <MenuItem key={id} title={title} imageUrl={imageUrl} large={large} />
+  const munuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
+    <MenuItem {...otherProps} />
   ));
 
   return <div className="directory-menu">{munuItemsJSX}</div>;
