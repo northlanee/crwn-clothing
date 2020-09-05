@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { MenuItem } from "../index";
 
-import "./Directory.scss";
+import "./Directory.styles.scss";
 
 type Section = {
   title: string;

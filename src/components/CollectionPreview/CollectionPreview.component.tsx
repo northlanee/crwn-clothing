@@ -1,4 +1,5 @@
 import React, { FC, ReactElement } from "react";
+import { CollectionItem } from "../index";
 
 import { Item } from "../../types";
 
@@ -17,7 +18,7 @@ const CollectionPreview: FC<PropTypes> = ({
     .filter((_, idx) => idx < 4)
     .map(
       (item: Item): ReactElement => {
-        return <div key={item.id}>{item.name}</div>;
+        return <CollectionItem key={item.id} {...item} />;
       }
     );
 
