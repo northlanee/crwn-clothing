@@ -51,11 +51,11 @@ const sectionsData: Section[] = [
 ];
 
 const Directory: FC = () => {
-  const munuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
+  const menuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
     <MenuItem {...otherProps} />
   ));
 
-  return <div className="directory-menu">{munuItemsJSX}</div>;
+  return <div className="directory-menu">{menuItemsJSX}</div>;
 };
 
 export default Directory;
