@@ -52,7 +52,7 @@ const sectionsData: Section[] = [
 
 const Directory: FC = () => {
   const menuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
-    <MenuItem {...otherProps} />
+    <MenuItem key={id} {...otherProps} />
   ));
 
   return <div className="directory-menu">{menuItemsJSX}</div>;
