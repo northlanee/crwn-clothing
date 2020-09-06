@@ -1,9 +1,16 @@
-body {
-  font-family: "Open Sans Condensed";
+.App {
+  font-family: "Open Sans Condensed", sans-serif;
+  width: 1200px;
+  margin: 20px auto;
 }
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

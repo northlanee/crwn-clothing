@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 
-import "./Home.scss";
-import { Directory } from "./../../components";
+import "./Home.styles.scss";
+import { Directory } from "../../components";
 
 const Home: FC = () => {
   return (

@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import cn from "classnames";
 
-import "./MenuItem.scss";
+import "./MenuItem.styles.scss";
 
 type PropTypes = {
   title: string;

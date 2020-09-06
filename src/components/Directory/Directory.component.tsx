@@ -2,7 +2,7 @@ import React, { FC } from "react";
 
 import { MenuItem } from "../index";
 
-import "./Directory.scss";
+import "./Directory.styles.scss";
 
 type Section = {
   title: string;
@@ -51,11 +51,11 @@ const sectionsData: Section[] = [
 ];
 
 const Directory: FC = () => {
-  const munuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
-    <MenuItem {...otherProps} />
+  const menuItemsJSX = sectionsData.map(({ id, ...otherProps }) => (
+    <MenuItem key={id} {...otherProps} />
   ));
 
-  return <div className="directory-menu">{munuItemsJSX}</div>;
+  return <div className="directory-menu">{menuItemsJSX}</div>;
 };
 
 export default Directory;
