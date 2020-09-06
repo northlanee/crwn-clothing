@@ -3,6 +3,8 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { InputField, Button } from "../index";
 
+import { signInWithGoogle } from "../../firebase/firebase.utils";
+
 import "./SignIn.styles.scss";
 
 type SignInFormValues = {
@@ -60,7 +62,12 @@ const SignIn: FC = (): ReactElement => {
           onBlur={handleBlur}
           value={values.password}
         />
-        <Button type="submit">Submit</Button>
+        <div className="buttons">
+          <Button type="submit">Submit</Button>
+          <Button type="button" onClick={signInWithGoogle} googleSignIn>
+            Sign In With Google
+          </Button>
+        </div>
       </form>
     </div>
   );
