@@ -20,6 +20,11 @@
     .option {
       padding: 10px 15px;
       text-transform: uppercase;
+      transition: 0.3s;
+      cursor: pointer;
+      &:hover {
+        background-color: rgb(233, 233, 233);
+      }
     }
   }
 }

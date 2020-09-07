@@ -1,11 +1,30 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
+import { appUser } from "../../types";
+
+import { auth } from "../../firebase/firebase.utils";
 
 import "./Header.styles.scss";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-const Header: FC = (): ReactElement => {
+type PropTypes = {
+  currentUser: appUser | null;
+};
+
+const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {
+  const signOut = () => auth.signOut();
+
+  const userJSX = currentUser ? (
+    <div className="option" onClick={signOut}>
+      Sign Out
+    </div>
+  ) : (
+    <Link className="option" to="/auth">
+      Sign In
+    </Link>
+  );
+
   return (
     <div className="header">
       <Link to="/">
@@ -18,6 +37,7 @@ const Header: FC = (): ReactElement => {
         <Link className="option" to="/contact">
           Contact
         </Link>
+        {userJSX}
       </div>
     </div>
   );
