@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { User } from "firebase";
+import { appUser } from "../../types";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -9,7 +9,7 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 type PropTypes = {
-  currentUser: User | null;
+  currentUser: appUser | null;
 };
 
 const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {

@@ -1,9 +1,13 @@
 import React, { FC, ReactElement } from "react";
 import { useFormik } from "formik";
-import * as Yup from "yup";
+import { signInSchema } from "../../utils/formValidators";
 import { InputField, Button } from "../index";
 
-import { signInWithGoogle } from "../../firebase/firebase.utils";
+import {
+  signInWithGoogle,
+  getUserProfileDocument,
+  auth,
+} from "../../firebase/firebase.utils";
 
 import "./SignIn.styles.scss";
 
@@ -12,34 +16,49 @@ type SignInFormValues = {
   password: string;
 };
 
-const signInSchema = Yup.object().shape({
-  email: Yup.string().email("Invalid email").required("Required"),
-  password: Yup.string()
-    .min(6, "Too Short!")
-    .max(20, "Too Long!")
-    .required("Required"),
-});
-
 const SignIn: FC = (): ReactElement => {
+  const [error, setError] = React.useState<string | null>(null);
+
   const initialValues: SignInFormValues = { email: "", password: "" };
-  const handleSubmit = () => {
-    alert(111);
+  const submitHandler = async (data: SignInFormValues) => {
+    setError(null);
+    try {
+      const { user } = await auth.signInWithEmailAndPassword(
+        data.email,
+        data.password
+      );
+      if (user) {
+        await getUserProfileDocument(user);
+      } else setError("Error while fetchind user");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: signInSchema,
-    onSubmit: handleSubmit,
+    onSubmit: submitHandler,
   });
 
-  const { errors, touched, values, handleChange, handleBlur } = formik;
+  const {
+    errors,
+    touched,
+    values,
+    handleChange,
+    handleBlur,
+    handleSubmit,
+  } = formik;
+
+  const errorJSX = error && <div className="error">{error}</div>;
 
   return (
     <div className="sign-in">
       <h2 className="title">I already have an account</h2>
       <span>Sign in with your email and password.</span>
+      {errorJSX}
 
-      <form onSubmit={formik.handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <InputField
           id="email"
           error={errors.email}

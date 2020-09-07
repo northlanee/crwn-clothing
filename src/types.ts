@@ -11,3 +11,10 @@ export type Collection = {
   routeName: string;
   items: Item[];
 };
+
+export type appUser = {
+  id: string;
+  email: string;
+  displayName: string;
+  createdAt: Date;
+};

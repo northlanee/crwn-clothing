@@ -16,7 +16,6 @@ const Button: FC<PropTypes> = ({
   googleSignIn,
   ...otherProps
 }): ReactElement => {
-  console.log(googleSignIn);
   return (
     <button
       className={cn("button", {
