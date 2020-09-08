@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { appUser } from "../../types";
+import { useSelector } from "react-redux";
+import { AppState } from "../../init/rootReducer";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -8,11 +9,11 @@ import "./Header.styles.scss";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-type PropTypes = {
-  currentUser: appUser | null;
-};
+const Header: FC<{}> = (): ReactElement => {
+  const { currentUser } = useSelector(({ user }: AppState) => ({
+    currentUser: user.currentUser,
+  }));
 
-const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {
   const signOut = () => auth.signOut();
 
   const userJSX = currentUser ? (

@@ -1,5 +1,8 @@
 import React, { FC } from "react";
 import { Switch, Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { actions } from "./bus/actions";
 
 import { auth, getUserProfileDocument } from "./firebase/firebase.utils";
 import { User } from "firebase";
@@ -11,22 +14,22 @@ import { Header } from "./components";
 import "./App.css";
 
 const App: FC = () => {
-  const [currentUser, setCurrentUser] = React.useState<appUser | null>(null);
+  const dispatch = useDispatch();
 
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user: User | null) => {
       if (user) {
         const snapshot = await getUserProfileDocument(user);
         const userData = snapshot.data() as appUser;
-        setCurrentUser(userData);
-      } else setCurrentUser(null);
+        dispatch(actions.user.setCurrentUser(userData));
+      } else dispatch(actions.user.setCurrentUser(null));
     });
     return () => unsubscribe();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="App">
-      <Header currentUser={currentUser} />
+      <Header />
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/shop" component={Shop} exact />
