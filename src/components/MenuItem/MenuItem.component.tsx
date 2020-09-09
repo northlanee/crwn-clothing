@@ -1,15 +1,21 @@
 import React, { FC } from "react";
 import cn from "classnames";
 
-import "./MenuItem.scss";
+import "./MenuItem.styles.scss";
 
 type PropTypes = {
   title: string;
   imageUrl: string;
   large: boolean;
+  linkUrl: string;
 };
 
-const MenuItem: FC<PropTypes> = ({ title, imageUrl, large }: PropTypes) => {
+const MenuItem: FC<PropTypes> = ({
+  title,
+  imageUrl,
+  large,
+  linkUrl,
+}: PropTypes) => {
   return (
     <div className={cn("menu-item", { large: large })}>
       <div
