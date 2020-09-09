@@ -7,6 +7,7 @@ type PropTypes = {
   children: ReactNode;
   type: "button" | "submit";
   googleSignIn?: true;
+  inverted?: true;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
@@ -14,12 +15,14 @@ const Button: FC<PropTypes> = ({
   children,
   type,
   googleSignIn,
+  inverted,
   ...otherProps
 }): ReactElement => {
   return (
     <button
       className={cn("button", {
         "google-sign-in": googleSignIn,
+        inverted: inverted,
       })}
       type={type}
       {...otherProps}

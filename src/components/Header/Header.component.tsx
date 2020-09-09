@@ -1,6 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { appUser } from "../../types";
+import { useSelector } from "react-redux";
+import { AppState } from "../../init/rootReducer";
+import { CartIcon, CartModal } from "../index";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -8,12 +10,18 @@ import "./Header.styles.scss";
 
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
-type PropTypes = {
-  currentUser: appUser | null;
-};
+const Header: FC<{}> = (): ReactElement => {
+  const { currentUser } = useSelector(({ user }: AppState) => ({
+    currentUser: user.currentUser,
+  }));
 
-const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {
+  const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
+
   const signOut = () => auth.signOut();
+
+  const cartIconClickHandler = () => {
+    setShowCartModal(!showCartModal);
+  };
 
   const userJSX = currentUser ? (
     <div className="option" onClick={signOut}>
@@ -24,6 +32,8 @@ const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {
       Sign In
     </Link>
   );
+
+  const modalJSX = showCartModal ? <CartModal /> : null;
 
   return (
     <div className="header">
@@ -38,7 +48,9 @@ const Header: FC<PropTypes> = ({ currentUser }: PropTypes): ReactElement => {
           Contact
         </Link>
         {userJSX}
+        <CartIcon onCartIconClick={cartIconClickHandler} />
       </div>
+      {modalJSX}
     </div>
   );
 };

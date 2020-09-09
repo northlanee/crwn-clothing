@@ -1,5 +1,5 @@
-import { createLogger } from "redux-logger";
 import { Middleware } from "redux";
+import { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 
 export const logger = createLogger({
