@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { AppState } from "../../init/rootReducer";
+import { selectors } from "../../bus/selectors";
 import { CartIcon, CartModal } from "../index";
 
 import { auth } from "../../firebase/firebase.utils";
@@ -11,9 +11,7 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 const Header: FC<{}> = (): ReactElement => {
-  const { currentUser } = useSelector(({ user }: AppState) => ({
-    currentUser: user.currentUser,
-  }));
+  const currentUser = useSelector(selectors.user.selectCurrentUser);
 
   const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
 
