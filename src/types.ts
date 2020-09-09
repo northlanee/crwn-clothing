@@ -1,4 +1,4 @@
-export type Item = {
+export type ProductItem = {
   id: number;
   name: string;
   imageUrl: string;
@@ -9,7 +9,7 @@ export type Collection = {
   id: number;
   title: string;
   routeName: string;
-  items: Item[];
+  items: ProductItem[];
 };
 
 export type appUser = {

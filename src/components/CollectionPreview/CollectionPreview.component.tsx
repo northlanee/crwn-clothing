@@ -1,13 +1,13 @@
 import React, { FC, ReactElement } from "react";
 import { CollectionItem } from "../index";
 
-import { Item } from "../../types";
+import { ProductItem } from "../../types";
 
 import "./CollectionPreview.styles.scss";
 
 type PropTypes = {
   title: string;
-  items: Item[];
+  items: ProductItem[];
 };
 
 const CollectionPreview: FC<PropTypes> = ({
@@ -17,8 +17,8 @@ const CollectionPreview: FC<PropTypes> = ({
   const itemsJSX = items
     .filter((_, idx) => idx < 4)
     .map(
-      (item: Item): ReactElement => {
-        return <CollectionItem key={item.id} {...item} />;
+      (item: ProductItem): ReactElement => {
+        return <CollectionItem key={item.id} item={item} />;
       }
     );
 
