@@ -17,9 +17,18 @@ const CartModal: FC<PropTypes> = ({ show }: PropTypes): ReactElement => {
     cartItems: state.cart.cartItems,
   }));
 
-  const cartItemsJSX = cartItems.map((item) => (
-    <CartItem productItem={item.productItem} quantity={item.quantity} />
-  ));
+  const noItemsJSX = <div className="no-items">No items in cart yet!</div>;
+
+  const cartItemsJSX =
+    cartItems.length === 0
+      ? noItemsJSX
+      : cartItems.map((item) => (
+          <CartItem
+            key={item.productItem.id}
+            productItem={item.productItem}
+            quantity={item.quantity}
+          />
+        ));
 
   return (
     <div className={cn("cart-modal", { hidden: !show })}>
