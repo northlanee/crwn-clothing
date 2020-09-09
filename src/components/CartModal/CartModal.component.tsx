@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
 import cn from "classnames";
 
-import { AppState } from "../../init/rootReducer";
+import { selectors } from "../../bus/selectors";
 
 import { Button, CartItem } from "../index";
 
@@ -14,7 +14,7 @@ type PropTypes = {
 
 const CartModal: FC<PropTypes> = React.memo(
   ({ show }: PropTypes): ReactElement => {
-    const cartItems = useSelector((state: AppState) => state.cart.cartItems);
+    const cartItems = useSelector(selectors.cart.selectCartItems);
 
     const noItemsJSX = <div className="no-items">No items in cart yet!</div>;
 
