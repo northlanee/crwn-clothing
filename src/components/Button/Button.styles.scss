@@ -43,5 +43,9 @@
       color: white;
       border: none;
     }
+    &:active {
+      background-color: rgb(221, 221, 221);
+      color: rgb(54, 54, 54);
+    }
   }
 }
