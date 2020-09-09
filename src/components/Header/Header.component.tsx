@@ -2,6 +2,7 @@ import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { AppState } from "../../init/rootReducer";
+import { CartIcon, CartModal } from "../index";
 
 import { auth } from "../../firebase/firebase.utils";
 
@@ -14,7 +15,13 @@ const Header: FC<{}> = (): ReactElement => {
     currentUser: user.currentUser,
   }));
 
+  const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
+
   const signOut = () => auth.signOut();
+
+  const cartIconClickHandler = () => {
+    setShowCartModal(!showCartModal);
+  };
 
   const userJSX = currentUser ? (
     <div className="option" onClick={signOut}>
@@ -25,6 +32,8 @@ const Header: FC<{}> = (): ReactElement => {
       Sign In
     </Link>
   );
+
+  const modalJSX = showCartModal ? <CartModal /> : null;
 
   return (
     <div className="header">
@@ -39,7 +48,9 @@ const Header: FC<{}> = (): ReactElement => {
           Contact
         </Link>
         {userJSX}
+        <CartIcon onCartIconClick={cartIconClickHandler} />
       </div>
+      {modalJSX}
     </div>
   );
 };
