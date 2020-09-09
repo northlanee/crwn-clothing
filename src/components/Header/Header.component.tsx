@@ -33,24 +33,24 @@ const Header: FC<{}> = (): ReactElement => {
     </Link>
   );
 
-  const modalJSX = showCartModal ? <CartModal /> : null;
-
   return (
-    <div className="header">
-      <Link to="/">
-        <Logo className="logo-container" />
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop">
-          Shop
+    <div className="header-wrapper">
+      <div className="header">
+        <Link to="/">
+          <Logo className="logo-container" />
         </Link>
-        <Link className="option" to="/contact">
-          Contact
-        </Link>
-        {userJSX}
-        <CartIcon onCartIconClick={cartIconClickHandler} />
+        <div className="options">
+          <Link className="option" to="/shop">
+            Shop
+          </Link>
+          <Link className="option" to="/contact">
+            Contact
+          </Link>
+          {userJSX}
+          <CartIcon onCartIconClick={cartIconClickHandler} />
+        </div>
+        <CartModal show={showCartModal} />
       </div>
-      {modalJSX}
     </div>
   );
 };
