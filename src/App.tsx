@@ -6,7 +6,7 @@ import { actions } from "bus/actions";
 
 import { auth, getUserProfileDocument } from "firebase/firebase.utils";
 import { User } from "firebase";
-import { appUser } from "types";
+import { User as appUser } from "types";
 
 import { Home, Shop, Auth, Checkout } from "pages";
 import { Header } from "components";

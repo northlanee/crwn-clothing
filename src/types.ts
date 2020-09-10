@@ -1,3 +1,18 @@
+export type User = {
+  id: string;
+  email: string;
+  displayName: string;
+  createdAt: Date;
+} | null;
+
+export type Directory = {
+  title: string;
+  imageUrl: string;
+  id: number;
+  linkUrl: string;
+  large: boolean;
+};
+
 export type ProductItem = {
   id: number;
   name: string;
@@ -15,11 +30,4 @@ export type Collection = {
   title: string;
   routeName: string;
   items: ProductItem[];
-};
-
-export type appUser = {
-  id: string;
-  email: string;
-  displayName: string;
-  createdAt: Date;
 };

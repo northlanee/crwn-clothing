@@ -4,6 +4,7 @@ import {
   selectTotalPrice,
 } from "./cart/selectors";
 import { getCurrentUser } from "./user/selectors";
+import { getDirectories } from "./directory/selectors";
 
 export const selectors = {
   cart: {
@@ -13,5 +14,8 @@ export const selectors = {
   },
   user: {
     getCurrentUser,
+  },
+  directory: {
+    getDirectories,
   },
 };
