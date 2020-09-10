@@ -1,12 +1,12 @@
-import { getCartItemsCount, selectCartItems } from "./cart/selectors";
-import { selectCurrentUser } from "./user/selectors";
+import { selectCartItemsCount, getCartItems } from "./cart/selectors";
+import { getCurrentUser } from "./user/selectors";
 
 export const selectors = {
   cart: {
-    getCartItemsCount,
-    selectCartItems,
+    selectCartItemsCount,
+    getCartItems,
   },
   user: {
-    selectCurrentUser,
+    getCurrentUser,
   },
 };

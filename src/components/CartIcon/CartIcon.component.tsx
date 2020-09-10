@@ -14,7 +14,7 @@ type PropTypes = {
 const CartIcon: FC<PropTypes> = ({
   onCartIconClick,
 }: PropTypes): ReactElement => {
-  const totalCount = useSelector(selectors.cart.getCartItemsCount);
+  const totalCount = useSelector(selectors.cart.selectCartItemsCount);
 
   return (
     <div className="cart-icon" onClick={onCartIconClick}>
