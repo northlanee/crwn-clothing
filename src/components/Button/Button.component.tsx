@@ -11,25 +11,20 @@ type PropTypes = {
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
-const Button: FC<PropTypes> = ({
-  children,
-  type,
-  googleSignIn,
-  inverted,
-  ...otherProps
-}): ReactElement => {
-  return (
-    <button
-      className={cn("button", {
-        "google-sign-in": googleSignIn,
-        inverted: inverted,
-      })}
-      type={type}
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
-};
-
+const Button: FC<PropTypes> = React.memo(
+  ({ children, type, googleSignIn, inverted, ...otherProps }): ReactElement => {
+    return (
+      <button
+        className={cn("button", {
+          "google-sign-in": googleSignIn,
+          inverted: inverted,
+        })}
+        type={type}
+        {...otherProps}
+      >
+        {children}
+      </button>
+    );
+  }
+);
 export default Button;

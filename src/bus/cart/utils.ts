@@ -1,5 +1,4 @@
-import { ProductItem } from "../../types";
-import { CartItem } from "./types";
+import { ProductItem, CartItem } from "../../types";
 
 export const addItemToCart = (
   cartItems: CartItem[],
@@ -16,3 +15,28 @@ export const addItemToCart = (
     );
   return [...cartItems, { productItem: itemToAdd, quantity: 1 }];
 };
+
+export const removeItemFromCart = (
+  cartItems: CartItem[],
+  id: number
+): CartItem[] => cartItems.filter((item) => item.productItem.id !== id);
+
+export const increaseQuantityOfItem = (
+  cartItems: CartItem[],
+  id: number
+): CartItem[] =>
+  cartItems.map((item) =>
+    item.productItem.id === id ? { ...item, quantity: item.quantity + 1 } : item
+  );
+
+export const decreaseQuantityOfItem = (
+  cartItems: CartItem[],
+  id: number
+): CartItem[] =>
+  cartItems
+    .map((item) =>
+      item.productItem.id === id
+        ? { ...item, quantity: item.quantity - 1 }
+        : item
+    )
+    .filter((item) => item.quantity !== 0);

@@ -5,6 +5,11 @@ export type ProductItem = {
   price: number;
 };
 
+export type CartItem = {
+  productItem: ProductItem;
+  quantity: number;
+};
+
 export type Collection = {
   id: number;
   title: string;
