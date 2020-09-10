@@ -1,13 +1,13 @@
 import React, { FC, ReactElement } from "react";
 import { useFormik } from "formik";
-import { signInSchema } from "../../utils/formValidators";
-import { InputField, Button } from "../index";
+import { signInSchema } from "utils/formValidators";
+import { InputField, Button } from "components";
 
 import {
   signInWithGoogle,
   getUserProfileDocument,
   auth,
-} from "../../firebase/firebase.utils";
+} from "firebase/firebase.utils";
 
 import "./SignIn.styles.scss";
 

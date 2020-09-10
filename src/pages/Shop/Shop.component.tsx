@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
-import { Collection } from "../../types";
+import { Collection } from "types";
 
-import { CollectionPreview } from "../../components";
+import { CollectionPreview } from "components";
 
 import { SHOP_DATA } from "./shop.data";
 

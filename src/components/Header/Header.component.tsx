@@ -1,10 +1,10 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectors } from "../../bus/selectors";
-import { CartIcon, CartModal } from "../index";
+import { selectors } from "bus/selectors";
+import { CartIcon, CartModal } from "components";
 
-import { auth } from "../../firebase/firebase.utils";
+import { auth } from "firebase/firebase.utils";
 
 import "./Header.styles.scss";
 

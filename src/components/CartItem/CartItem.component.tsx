@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { ProductItem } from "../../types";
+import { ProductItem } from "types";
 
 import "./CartItem.styles.scss";
 

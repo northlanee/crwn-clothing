@@ -1,4 +1,4 @@
-import { ProductItem } from "../../types";
+import { ProductItem } from "types";
 import { CartItem } from "./types";
 
 export const addItemToCart = (

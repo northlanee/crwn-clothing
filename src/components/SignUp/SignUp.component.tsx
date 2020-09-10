@@ -1,9 +1,9 @@
 import React, { FC, ReactElement } from "react";
 import { useFormik } from "formik";
-import { signUpSchema } from "../../utils/formValidators";
-import { InputField, Button } from "../index";
+import { signUpSchema } from "utils/formValidators";
+import { InputField, Button } from "components";
 
-import { auth, getUserProfileDocument } from "../../firebase/firebase.utils";
+import { auth, getUserProfileDocument } from "firebase/firebase.utils";
 
 import "./SignUp.styles.scss";
 

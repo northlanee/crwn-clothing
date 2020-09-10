@@ -2,9 +2,9 @@ import React, { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
 import cn from "classnames";
 
-import { selectors } from "../../bus/selectors";
+import { selectors } from "bus/selectors";
 
-import { Button, CartItem } from "../index";
+import { Button, CartItem } from "components";
 
 import "./CartModal.styles.scss";
 

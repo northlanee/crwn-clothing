@@ -2,14 +2,14 @@ import React, { FC } from "react";
 import { Switch, Route } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { actions } from "./bus/actions";
+import { actions } from "bus/actions";
 
-import { auth, getUserProfileDocument } from "./firebase/firebase.utils";
+import { auth, getUserProfileDocument } from "firebase/firebase.utils";
 import { User } from "firebase";
-import { appUser } from "./types";
+import { appUser } from "types";
 
-import { Home, Shop, Auth } from "./pages";
-import { Header } from "./components";
+import { Home, Shop, Auth } from "pages";
+import { Header } from "components";
 
 import "./App.css";
 

@@ -1,9 +1,9 @@
 import React, { FC, ReactElement } from "react";
 import { useDispatch } from "react-redux";
-import { ProductItem } from "../../types";
-import { actions } from "../../bus/actions";
+import { ProductItem } from "types";
+import { actions } from "bus/actions";
 
-import { Button } from "../index";
+import { Button } from "components";
 
 import "./CollectionItem.styles.scss";
 

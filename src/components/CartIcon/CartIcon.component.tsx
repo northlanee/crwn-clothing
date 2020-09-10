@@ -1,11 +1,11 @@
 import React, { FC, ReactElement } from "react";
 import { useSelector } from "react-redux";
 
-import { selectors } from "../../bus/selectors";
+import { selectors } from "bus/selectors";
 
 import "./CartIcon.styles.scss";
 
-import { ReactComponent as Icon } from "../../assets/shopping-bag.svg";
+import { ReactComponent as Icon } from "assets/shopping-bag.svg";
 
 type PropTypes = {
   onCartIconClick: () => void;

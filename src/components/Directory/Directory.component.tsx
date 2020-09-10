@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 
-import { MenuItem } from "../index";
+import { MenuItem } from "components";
 
 import "./Directory.styles.scss";
 
