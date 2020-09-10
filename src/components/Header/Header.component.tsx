@@ -17,9 +17,8 @@ const Header: FC<{}> = (): ReactElement => {
 
   const signOut = () => auth.signOut();
 
-  const cartIconClickHandler = () => {
-    setShowCartModal(!showCartModal);
-  };
+  const cartIconClickHandler = () => setShowCartModal(!showCartModal);
+  const closeCartHandler = () => setShowCartModal(false);
 
   const userJSX = currentUser ? (
     <div className="option" onClick={signOut}>
@@ -47,7 +46,7 @@ const Header: FC<{}> = (): ReactElement => {
           {userJSX}
           <CartIcon onCartIconClick={cartIconClickHandler} />
         </div>
-        <CartModal show={showCartModal} />
+        <CartModal show={showCartModal} closeCart={closeCartHandler} />
       </div>
     </div>
   );
