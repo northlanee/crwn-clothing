@@ -1,7 +1,7 @@
 import { DirectoryState } from "./types";
 
 const initialState: DirectoryState = {
-  directories: [
+  sections: [
     {
       title: "hats",
       imageUrl: "https://i.ibb.co/cvpntL1/hats.png",

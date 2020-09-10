@@ -1,5 +1,5 @@
 import { AppState } from "init/rootReducer";
-import { Directory } from "types";
+import { Section } from "types";
 
-export const getDirectories = (state: AppState): Directory[] =>
-  state.directory.directories;
+export const getSections = (state: AppState): Section[] =>
+  state.directory.sections;

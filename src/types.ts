@@ -5,7 +5,7 @@ export type User = {
   createdAt: Date;
 } | null;
 
-export type Directory = {
+export type Section = {
   title: string;
   imageUrl: string;
   id: number;

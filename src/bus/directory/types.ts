@@ -1,5 +1,5 @@
-import { Directory } from "types";
+import { Section } from "types";
 
 export type DirectoryState = {
-  directories: Directory[];
+  sections: Section[];
 };

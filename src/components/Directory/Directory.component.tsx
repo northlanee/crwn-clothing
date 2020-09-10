@@ -7,9 +7,9 @@ import { MenuItem } from "components";
 import "./Directory.styles.scss";
 
 const Directory: FC = () => {
-  const directories = useSelector(selectors.directory.getDirectories);
+  const sections = useSelector(selectors.directory.getSections);
 
-  const menuItemsJSX = directories.map(({ id, ...otherProps }) => (
+  const menuItemsJSX = sections.map(({ id, ...otherProps }) => (
     <MenuItem key={id} {...otherProps} />
   ));
 
