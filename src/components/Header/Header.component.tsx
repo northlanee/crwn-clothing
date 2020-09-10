@@ -11,7 +11,7 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 const Header: FC<{}> = (): ReactElement => {
-  const currentUser = useSelector(selectors.user.selectCurrentUser);
+  const currentUser = useSelector(selectors.user.getCurrentUser);
 
   const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
 

@@ -14,7 +14,7 @@ type PropTypes = {
 
 const CartModal: FC<PropTypes> = React.memo(
   ({ show }: PropTypes): ReactElement => {
-    const cartItems = useSelector(selectors.cart.selectCartItems);
+    const cartItems = useSelector(selectors.cart.getCartItems);
 
     const noItemsJSX = <div className="no-items">No items in cart yet!</div>;
 

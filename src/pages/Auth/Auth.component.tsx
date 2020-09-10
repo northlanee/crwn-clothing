@@ -8,7 +8,7 @@ import { SignIn, SignUp } from "../../components";
 import "./Auth.styles.scss";
 
 const Auth: FC = (): ReactElement => {
-  const currentUser = useSelector(selectors.user.selectCurrentUser);
+  const currentUser = useSelector(selectors.user.getCurrentUser);
 
   const authJSX = !currentUser ? (
     <div className="auth">
