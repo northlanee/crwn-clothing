@@ -8,13 +8,8 @@ import { auth, getUserProfileDocument } from "firebase/firebase.utils";
 import { User } from "firebase";
 import { appUser } from "types";
 
-<<<<<<< HEAD
 import { Home, Shop, Auth } from "pages";
 import { Header } from "components";
-=======
-import { Home, Shop, Auth, Checkout } from "./pages";
-import { Header } from "./components";
->>>>>>> b5095924d1b2940e13da695662313539d7be2b1e
 
 import "./App.css";
 
