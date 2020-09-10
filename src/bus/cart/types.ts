@@ -10,4 +10,10 @@ export type AddItem = {
   payload: ProductItem;
 };
 
-export type CartActionTypes = AddItem;
+export const REMOVE_ITEM = "REMOVE_ITEM";
+export type RemoveItem = {
+  type: typeof REMOVE_ITEM;
+  payload: number;
+};
+
+export type CartActionTypes = AddItem | RemoveItem;
