@@ -32,7 +32,7 @@ const App: FC = () => {
       <Header />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/shop" component={Shop} exact />
+        <Route path="/shop" component={Shop} />
         <Route path="/auth" component={Auth} exact />
         <Route path="/checkout" component={Checkout} exact />
       </Switch>

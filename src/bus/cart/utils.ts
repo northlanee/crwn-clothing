@@ -1,5 +1,4 @@
-import { ProductItem } from "types";
-import { CartItem } from "./types";
+import { ProductItem, CartItem } from "types";
 
 export const addItemToCart = (
   cartItems: CartItem[],

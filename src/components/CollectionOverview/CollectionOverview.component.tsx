@@ -9,9 +9,11 @@ import "./CollectionOverview.styles.scss";
 
 const CollectionOverview: FC = (): ReactElement => {
   const collections = useSelector(selectors.shop.getCollections);
+  const products = useSelector(selectors.shop.getProducts);
 
   const collectionsJSX = collections.map(
-    ({ id, title, items }: Collection): ReactElement => {
+    ({ id, title }: Collection): ReactElement => {
+      const items = products.filter((item) => item.collectionId === id);
       return <CollectionPreview key={id} title={title} items={items} />;
     }
   );

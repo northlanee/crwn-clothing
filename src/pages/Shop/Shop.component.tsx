@@ -1,11 +1,15 @@
 import React, { FC, ReactElement } from "react";
+import { Route, useRouteMatch } from "react-router-dom";
 
 import { CollectionOverview } from "components";
+import { Collection } from "pages";
 
 const Shop: FC = (): ReactElement => {
+  const { path } = useRouteMatch();
   return (
     <div className="shop-page">
-      <CollectionOverview />
+      <Route path={`${path}`} component={CollectionOverview} exact />
+      <Route path={`${path}/:collectionRouteName`} component={Collection} />
     </div>
   );
 };

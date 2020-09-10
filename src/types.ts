@@ -18,6 +18,7 @@ export type ProductItem = {
   name: string;
   imageUrl: string;
   price: number;
+  collectionId: number;
 };
 
 export type CartItem = {
@@ -29,5 +30,4 @@ export type Collection = {
   id: number;
   title: string;
   routeName: string;
-  items: ProductItem[];
 };
