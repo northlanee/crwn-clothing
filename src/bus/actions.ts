@@ -1,5 +1,10 @@
 import { setCurrentUser } from "./user/actions";
-import { addItem, removeItem } from "./cart/actions";
+import {
+  addItem,
+  removeItem,
+  increaseQuantity,
+  decreaseQuantity,
+} from "./cart/actions";
 
 export const actions = {
   user: {
@@ -8,5 +13,7 @@ export const actions = {
   cart: {
     addItem,
     removeItem,
+    increaseQuantity,
+    decreaseQuantity,
   },
 };

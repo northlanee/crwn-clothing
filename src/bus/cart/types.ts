@@ -16,4 +16,20 @@ export type RemoveItem = {
   payload: number;
 };
 
-export type CartActionTypes = AddItem | RemoveItem;
+export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
+export type IncreaseQuantity = {
+  type: typeof INCREASE_QUANTITY;
+  payload: number;
+};
+
+export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
+export type DecreaseQuantity = {
+  type: typeof DECREASE_QUANTITY;
+  payload: number;
+};
+
+export type CartActionTypes =
+  | AddItem
+  | RemoveItem
+  | IncreaseQuantity
+  | DecreaseQuantity;

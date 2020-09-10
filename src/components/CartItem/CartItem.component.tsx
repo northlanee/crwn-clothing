@@ -13,8 +13,6 @@ const CartItem: FC<PropTypes> = React.memo(
     productItem: { name, price, imageUrl },
     quantity,
   }: PropTypes): ReactElement => {
-    console.log(`Cart item ${name} rendered`);
-
     return (
       <div className="cart-item">
         <img src={imageUrl} alt="item" />
