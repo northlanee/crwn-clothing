@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-import { CartActionTypes, ADD_ITEM } from "./types";
 import { ProductItem } from "types";
-=======
 import {
   CartActionTypes,
   ADD_ITEM,
@@ -9,8 +6,6 @@ import {
   INCREASE_QUANTITY,
   DECREASE_QUANTITY,
 } from "./types";
-import { ProductItem } from "../../types";
->>>>>>> b5095924d1b2940e13da695662313539d7be2b1e
 
 export const addItem = (item: ProductItem): CartActionTypes => ({
   type: ADD_ITEM,

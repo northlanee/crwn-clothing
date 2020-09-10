@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import { ProductItem } from "types";
 
 export type CartItem = {
   productItem: ProductItem;
   quantity: number;
 };
-=======
-import { ProductItem, CartItem } from "../../types";
->>>>>>> b5095924d1b2940e13da695662313539d7be2b1e
 
 export type CartState = {
   cartItems: CartItem[];
