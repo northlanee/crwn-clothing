@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { AppState } from "../../init/rootReducer";
+import { selectors } from "../../bus/selectors";
 import { CartIcon, CartModal } from "../index";
 
 import { auth } from "../../firebase/firebase.utils";
@@ -11,17 +11,14 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 const Header: FC<{}> = (): ReactElement => {
-  const { currentUser } = useSelector(({ user }: AppState) => ({
-    currentUser: user.currentUser,
-  }));
+  const currentUser = useSelector(selectors.user.getCurrentUser);
 
   const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
 
   const signOut = () => auth.signOut();
 
-  const cartIconClickHandler = () => {
-    setShowCartModal(!showCartModal);
-  };
+  const cartIconClickHandler = () => setShowCartModal(!showCartModal);
+  const closeCartHandler = () => setShowCartModal(false);
 
   const userJSX = currentUser ? (
     <div className="option" onClick={signOut}>
@@ -33,24 +30,24 @@ const Header: FC<{}> = (): ReactElement => {
     </Link>
   );
 
-  const modalJSX = showCartModal ? <CartModal /> : null;
-
   return (
-    <div className="header">
-      <Link to="/">
-        <Logo className="logo-container" />
-      </Link>
-      <div className="options">
-        <Link className="option" to="/shop">
-          Shop
+    <div className="header-wrapper">
+      <div className="header">
+        <Link to="/">
+          <Logo className="logo-container" />
         </Link>
-        <Link className="option" to="/contact">
-          Contact
-        </Link>
-        {userJSX}
-        <CartIcon onCartIconClick={cartIconClickHandler} />
+        <div className="options">
+          <Link className="option" to="/shop">
+            Shop
+          </Link>
+          <Link className="option" to="/contact">
+            Contact
+          </Link>
+          {userJSX}
+          <CartIcon onCartIconClick={cartIconClickHandler} />
+        </div>
+        <CartModal show={showCartModal} closeCart={closeCartHandler} />
       </div>
-      {modalJSX}
     </div>
   );
 };

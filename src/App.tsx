@@ -8,7 +8,7 @@ import { auth, getUserProfileDocument } from "./firebase/firebase.utils";
 import { User } from "firebase";
 import { appUser } from "./types";
 
-import { Home, Shop, Auth } from "./pages";
+import { Home, Shop, Auth, Checkout } from "./pages";
 import { Header } from "./components";
 
 import "./App.css";
@@ -33,8 +33,8 @@ const App: FC = () => {
       <Switch>
         <Route path="/" component={Home} exact />
         <Route path="/shop" component={Shop} exact />
-
         <Route path="/auth" component={Auth} exact />
+        <Route path="/checkout" component={Checkout} exact />
       </Switch>
     </div>
   );
