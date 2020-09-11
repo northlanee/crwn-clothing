@@ -20,16 +20,18 @@ const CollectionItem: FC<PropTypes> = ({ item }: PropTypes): ReactElement => {
 
   return (
     <div className="collection-item">
+      <div className="header">
+        <span className="name">{item.name}</span>
+        <span className="price">${item.price}</span>
+      </div>
+
       <div
         className="image"
         style={{
           backgroundImage: `url(${item.imageUrl})`,
         }}
       />
-      <div className="collection-footer">
-        <span className="name">{item.name}</span>
-        <span className="price">${item.price}</span>
-      </div>
+
       <Button type="button" onClick={addToCartHandler} inverted>
         Add to cart
       </Button>
