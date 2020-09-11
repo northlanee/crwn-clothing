@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { selectors } from "bus/selectors";
+import { CollectionItem } from "components";
 
 import "./Collection.styles.scss";
 
@@ -21,12 +22,17 @@ const Category: FC = (): ReactElement => {
   const collectionJSX = collectionItem ? (
     allProducts
       .filter((item) => item.collectionId === collectionItem.id)
-      .map((product) => <div>{product.name}</div>)
+      .map((product) => <CollectionItem key={product.id} item={product} />)
   ) : (
     <div>111</div>
   );
 
-  return <div className="category">{collectionJSX}</div>;
+  return (
+    <div className="collection-page">
+      <h2 className="title">{collectionItem.title}</h2>
+      <div className="items">{collectionJSX}</div>
+    </div>
+  );
 };
 
 export default Category;
