@@ -16,7 +16,7 @@ const Category: FC = (): ReactElement => {
   const collections = useSelector(selectors.shop.getCollections);
   const allProducts = useSelector(selectors.shop.getProducts);
 
-  const collectionItem = collections.filter(
+  const collectionItem: any = collections.filter(
     (item) => item.routeName === collectionRouteName
   )[0];
   const collectionJSX = collectionItem ? (

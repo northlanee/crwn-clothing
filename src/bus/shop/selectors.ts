@@ -6,3 +6,5 @@ export const getCollections = (state: AppState): Collection[] =>
 
 export const getProducts = (state: AppState): ProductItem[] =>
   state.shop.products;
+
+export const getFetching = (state: AppState): boolean => state.shop.isFetching;

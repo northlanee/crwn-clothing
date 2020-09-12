@@ -13,3 +13,4 @@ export { default as CartModal } from "./CartModal/CartModal.component";
 export { default as CartItem } from "./CartItem/CartItem.component";
 export { default as CheckoutItem } from "./CheckoutItem/CheckoutItem.component";
 export { default as StripeButton } from "./StripeButton/StripeButton.component";
+export { default as Spinner } from "./Spinner/Spinner.component";

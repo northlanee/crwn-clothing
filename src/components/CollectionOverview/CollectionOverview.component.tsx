@@ -13,7 +13,7 @@ const CollectionOverview: FC = (): ReactElement => {
 
   const collectionsJSX = collections.map(
     ({ id, title }: Collection): ReactElement => {
-      const items = products.filter((item) => item.collectionId === id);
+      const items = products.filter((item: any) => item.collectionId === id);
       return <CollectionPreview key={id} title={title} items={items} />;
     }
   );

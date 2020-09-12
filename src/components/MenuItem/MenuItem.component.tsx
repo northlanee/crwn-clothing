@@ -7,14 +7,14 @@ type PropTypes = {
   title: string;
   imageUrl: string;
   large: boolean;
-  linkUrl: string;
+  routeName: string;
 };
 
 const MenuItem: FC<PropTypes> = ({
   title,
   imageUrl,
   large,
-  linkUrl,
+  routeName,
 }: PropTypes) => {
   return (
     <div className={cn("menu-item", { large: large })}>

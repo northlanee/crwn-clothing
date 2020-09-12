@@ -1,32 +1,4 @@
-import { Collection, ProductItem } from "types";
-
-export const COLLECTIONS_ITEMS: Collection[] = [
-  {
-    id: 1,
-    title: "Hats",
-    routeName: "hats",
-  },
-  {
-    id: 2,
-    title: "Sneakers",
-    routeName: "sneakers",
-  },
-  {
-    id: 3,
-    title: "Jackets",
-    routeName: "jackets",
-  },
-  {
-    id: 4,
-    title: "Womens",
-    routeName: "womens",
-  },
-  {
-    id: 5,
-    title: "Mens",
-    routeName: "mens",
-  },
-];
+import { ProductItem } from "types";
 
 export const PRODUCT_ITEMS: ProductItem[] = [
   {

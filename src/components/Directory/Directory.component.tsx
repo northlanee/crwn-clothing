@@ -1,13 +1,22 @@
 import React, { FC } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { selectors } from "bus/selectors";
-import { MenuItem } from "components";
+import { actions } from "bus/actions";
+import { MenuItem, Spinner } from "components";
 
 import "./Directory.styles.scss";
 
 const Directory: FC = () => {
-  const sections = useSelector(selectors.directory.getSections);
+  const sections = useSelector(selectors.shop.getCollections);
+  const isFetching = useSelector(selectors.shop.getFetching);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(actions.shop.getCollectionsAsync());
+  }, [dispatch]);
+
+  if (isFetching) return <Spinner />;
 
   const menuItemsJSX = sections.map(({ id, ...otherProps }) => (
     <MenuItem key={id} {...otherProps} />
