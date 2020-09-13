@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
-import { CollectionItem } from "../index";
+import { CollectionItem } from "components";
 
-import { ProductItem } from "../../types";
+import { ProductItem } from "types";
 
 import "./CollectionPreview.styles.scss";
 

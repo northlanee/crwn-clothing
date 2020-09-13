@@ -1,6 +1,7 @@
 import { createSelector } from "reselect";
-import { AppState } from "../../init/rootReducer";
-import { CartItem } from "../../types";
+
+import { AppState } from "init/rootReducer";
+import { CartItem } from "types";
 
 export const getCartItems = (state: AppState): CartItem[] =>
   state.cart.cartItems;

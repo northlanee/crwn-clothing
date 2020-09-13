@@ -1,8 +1,25 @@
-export type ProductItem = {
+export type User = {
+  id: string;
+  email: string;
+  displayName: string;
+  createdAt: Date;
+} | null;
+
+export type Section = {
+  title: string;
+  imageUrl: string;
   id: number;
+  linkUrl: string;
+  large: boolean;
+};
+
+export type ProductItem = {
+  id: string;
   name: string;
   imageUrl: string;
+  collectionId: string;
   price: number;
+  preview: boolean;
 };
 
 export type CartItem = {
@@ -11,15 +28,9 @@ export type CartItem = {
 };
 
 export type Collection = {
-  id: number;
+  id: string;
   title: string;
   routeName: string;
-  items: ProductItem[];
-};
-
-export type appUser = {
-  id: string;
-  email: string;
-  displayName: string;
-  createdAt: Date;
+  imageUrl: string;
+  large: boolean;
 };

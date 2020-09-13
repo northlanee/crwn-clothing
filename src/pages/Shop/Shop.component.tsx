@@ -1,18 +1,18 @@
 import React, { FC, ReactElement } from "react";
-import { Collection } from "../../types";
+import { Route, useRouteMatch } from "react-router-dom";
 
-import { CollectionPreview } from "../../components";
-
-import { SHOP_DATA } from "./shop.data";
+import { CollectionOverview } from "components";
+import { Collection } from "pages";
 
 const Shop: FC = (): ReactElement => {
-  const collectionsJSX = SHOP_DATA.map(
-    ({ id, title, items }: Collection): ReactElement => {
-      return <CollectionPreview key={id} title={title} items={items} />;
-    }
-  );
+  const { path } = useRouteMatch();
 
-  return <div>{collectionsJSX}</div>;
+  return (
+    <div className="shop-page">
+      <Route path={`${path}`} component={CollectionOverview} exact />
+      <Route path={`${path}/:collectionRouteName`} component={Collection} />
+    </div>
+  );
 };
 
 export default Shop;

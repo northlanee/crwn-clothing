@@ -1,5 +1,4 @@
 import {
-  CartState,
   CartActionTypes,
   ADD_ITEM,
   REMOVE_ITEM,
@@ -12,13 +11,16 @@ import {
   increaseQuantityOfItem,
   decreaseQuantityOfItem,
 } from "./utils";
+import { CartItem } from "types";
 
-const initialState: CartState = {
-  cartItems: [],
+const initialState = {
+  cartItems: [] as CartItem[],
 };
 
+export type CartState = typeof initialState;
+
 export const cartReducer = (
-  state: CartState = initialState,
+  state = initialState,
   action: CartActionTypes
 ): CartState => {
   switch (action.type) {

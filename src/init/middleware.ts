@@ -14,6 +14,10 @@ export const logger = createLogger({
   },
 });
 
-const middleware: Middleware[] = [logger, thunk];
+const middleware: Middleware[] = [thunk];
+
+if (process.env.NODE_ENV === "development") {
+  middleware.push(logger);
+}
 
 export { middleware };

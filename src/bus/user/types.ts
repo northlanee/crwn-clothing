@@ -1,9 +1,4 @@
-export type User = {
-  id: string;
-  email: string;
-  displayName: string;
-  createdAt: Date;
-} | null;
+import { User } from "types";
 
 export type UserState = {
   currentUser: User;
