@@ -18,10 +18,17 @@ type SetCollections = {
   payload: Collection[];
 };
 
+export const SET_PRODUCTS = "SET_PRODUCTS";
+type SetProducts = {
+  type: typeof SET_PRODUCTS;
+  payload: ProductItem[];
+};
+
 export const GET_COLLECTIONS_ASYNC = "GET_COLLECTIONS_ASYNC";
 type GetCollectionsAsync = { type: typeof GET_COLLECTIONS_ASYNC };
 
 export type ShopActionTypes =
   | GetCollectionsAsync
   | SetCollections
-  | SetFetching;
+  | SetFetching
+  | SetProducts;

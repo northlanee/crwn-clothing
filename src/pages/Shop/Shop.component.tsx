@@ -6,6 +6,7 @@ import { Collection } from "pages";
 
 const Shop: FC = (): ReactElement => {
   const { path } = useRouteMatch();
+
   return (
     <div className="shop-page">
       <Route path={`${path}`} component={CollectionOverview} exact />

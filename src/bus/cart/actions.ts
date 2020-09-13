@@ -12,17 +12,17 @@ export const addItem = (item: ProductItem): CartActionTypes => ({
   payload: item,
 });
 
-export const removeItem = (id: number): CartActionTypes => ({
+export const removeItem = (id: string): CartActionTypes => ({
   type: REMOVE_ITEM,
   payload: id,
 });
 
-export const increaseQuantity = (id: number): CartActionTypes => ({
+export const increaseQuantity = (id: string): CartActionTypes => ({
   type: INCREASE_QUANTITY,
   payload: id,
 });
 
-export const decreaseQuantity = (id: number): CartActionTypes => ({
+export const decreaseQuantity = (id: string): CartActionTypes => ({
   type: DECREASE_QUANTITY,
   payload: id,
 });

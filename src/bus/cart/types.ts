@@ -9,19 +9,19 @@ type AddItem = {
 export const REMOVE_ITEM = "REMOVE_ITEM";
 type RemoveItem = {
   type: typeof REMOVE_ITEM;
-  payload: number;
+  payload: string;
 };
 
 export const INCREASE_QUANTITY = "INCREASE_QUANTITY";
 type IncreaseQuantity = {
   type: typeof INCREASE_QUANTITY;
-  payload: number;
+  payload: string;
 };
 
 export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 type DecreaseQuantity = {
   type: typeof DECREASE_QUANTITY;
-  payload: number;
+  payload: string;
 };
 
 export type CartActionTypes =

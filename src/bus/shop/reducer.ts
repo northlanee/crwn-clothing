@@ -3,12 +3,12 @@ import {
   ShopActionTypes,
   SET_COLLECTIONS,
   SET_FETCHING,
+  SET_PRODUCTS,
 } from "./types";
-import { PRODUCT_ITEMS } from "./shop.data";
 
 const initialState: ShopState = {
   collections: [],
-  products: PRODUCT_ITEMS,
+  products: [],
   isFetching: false,
 };
 
@@ -26,6 +26,11 @@ export const shopReducer = (
       return {
         ...state,
         collections: action.payload,
+      };
+    case SET_PRODUCTS:
+      return {
+        ...state,
+        products: action.payload,
       };
   }
   return state;

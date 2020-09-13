@@ -14,11 +14,12 @@ export type Section = {
 };
 
 export type ProductItem = {
-  id: number;
+  id: string;
   name: string;
   imageUrl: string;
+  collectionId: string;
   price: number;
-  collectionId: number;
+  preview: boolean;
 };
 
 export type CartItem = {

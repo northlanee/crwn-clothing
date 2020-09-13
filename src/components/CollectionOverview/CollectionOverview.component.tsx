@@ -1,15 +1,24 @@
 import React, { FC, ReactElement } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import { selectors } from "bus/selectors";
 import { Collection } from "types";
-import { CollectionPreview } from "components";
+import { actions } from "bus/actions";
+import { CollectionPreview, Spinner } from "components";
 
 import "./CollectionOverview.styles.scss";
 
 const CollectionOverview: FC = (): ReactElement => {
   const collections = useSelector(selectors.shop.getCollections);
   const products = useSelector(selectors.shop.getProducts);
+  const isFetching = useSelector(selectors.shop.getFetching);
+  const dispatch = useDispatch();
+
+  React.useEffect(() => {
+    dispatch(actions.shop.getPreviewProductsAsync());
+  }, [dispatch]);
+
+  if (isFetching) return <Spinner />;
 
   const collectionsJSX = collections.map(
     ({ id, title }: Collection): ReactElement => {
