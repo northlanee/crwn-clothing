@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import { selectors } from "bus/selectors";
 
-import { CheckoutItem, StripeButton } from "components";
+import { CheckoutItem, StripeButton } from "components/Checkout";
 
 import "./Checkout.styles.scss";
 

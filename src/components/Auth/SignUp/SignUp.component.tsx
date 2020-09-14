@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { useFormik } from "formik";
 import { signUpSchema } from "utils/formValidators";
-import { InputField, Button } from "components";
+import { InputField, Button } from "components/common";
 
 import { auth } from "firebase/firebase.utils";
 import { getUserProfileDocument } from "api";

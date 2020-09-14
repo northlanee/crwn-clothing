@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { selectors } from "bus/selectors";
 import { actions } from "bus/actions";
-import { MenuItem, Spinner } from "components";
+import { MenuItem, Spinner } from "components/common";
 
 import "./Directory.styles.scss";
 

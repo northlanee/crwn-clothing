@@ -8,7 +8,7 @@ import { auth } from "firebase/firebase.utils";
 import { User } from "firebase";
 
 import { Home, Shop, Auth, Checkout } from "pages";
-import { Header } from "components";
+import { Header } from "components/common";
 
 import "./App.css";
 

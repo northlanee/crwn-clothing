@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import cn from "classnames";
 
 import { selectors } from "bus/selectors";
-import { Button, CartItem } from "components";
+import { Button } from "components/common";
+import { CartItem } from "components/Cart";
 
 import "./CartModal.styles.scss";
 

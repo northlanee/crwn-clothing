@@ -1,5 +1,5 @@
 import React, { FC, ReactElement } from "react";
-import { CollectionItem } from "components";
+import { CollectionItem } from "components/Shop";
 
 import { ProductItem } from "types";
 

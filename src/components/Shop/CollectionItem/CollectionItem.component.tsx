@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { ProductItem } from "types";
 import { actions } from "bus/actions";
-import { Button } from "components";
+import { Button } from "components/common";
 
 import "./CollectionItem.styles.scss";
 

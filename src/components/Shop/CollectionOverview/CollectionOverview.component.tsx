@@ -4,7 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { selectors } from "bus/selectors";
 import { Collection } from "types";
 import { actions } from "bus/actions";
-import { CollectionPreview, Spinner } from "components";
+import { Spinner } from "components/common";
+import { CollectionPreview } from "components/Shop";
 
 import "./CollectionOverview.styles.scss";
 

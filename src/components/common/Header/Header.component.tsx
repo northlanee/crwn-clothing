@@ -2,13 +2,14 @@ import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { selectors } from "bus/selectors";
-import { CartIcon, CartModal, Spinner } from "components";
+import { Spinner } from "components/common";
+import { CartIcon, CartModal } from "components/Cart";
 
 import { auth } from "firebase/firebase.utils";
 
 import "./Header.styles.scss";
 
-import { ReactComponent as Logo } from "../../assets/crown.svg";
+import { ReactComponent as Logo } from "assets/crown.svg";
 
 const Header: FC<{}> = (): ReactElement => {
   const currentUser = useSelector(selectors.user.getCurrentUser);

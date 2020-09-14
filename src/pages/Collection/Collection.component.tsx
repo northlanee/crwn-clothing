@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { selectors } from "bus/selectors";
-import { CollectionItem } from "components";
+import { CollectionItem } from "components/Shop";
 
 import "./Collection.styles.scss";
 

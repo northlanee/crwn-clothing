@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { useDispatch } from "react-redux";
-import { actions } from "../../bus/actions";
-import { CartItem } from "../../types";
+import { actions } from "bus/actions";
+import { CartItem } from "types";
 
 import "./CheckoutItem.styles.scss";
 
