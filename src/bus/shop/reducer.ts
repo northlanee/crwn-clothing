@@ -4,10 +4,12 @@ import {
   SET_COLLECTIONS,
   SET_FETCHING,
   SET_PRODUCTS,
+  SET_CURRENT_COLLECTION,
 } from "./types";
 
 const initialState: ShopState = {
   collections: [],
+  currentCollection: null,
   products: [],
   isFetching: false,
 };
@@ -26,6 +28,11 @@ export const shopReducer = (
       return {
         ...state,
         collections: action.payload,
+      };
+    case SET_CURRENT_COLLECTION:
+      return {
+        ...state,
+        currentCollection: action.payload,
       };
     case SET_PRODUCTS:
       return {

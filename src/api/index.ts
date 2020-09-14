@@ -36,6 +36,23 @@ export const fetchPreviewProducts = async () => {
   return previewProducts;
 };
 
+export const fetchProductsByCollection = async (collectionId: string) => {
+  const products: ProductItem[] = [];
+  const productsSnapshot = await firestore
+    .collection("products")
+    .where("collectionId", "==", collectionId)
+    .get();
+
+  productsSnapshot.forEach((product) =>
+    products.push({
+      id: product.id,
+      ...product.data(),
+    } as ProductItem)
+  );
+
+  return products;
+};
+
 export const getUserProfileDocument = async (
   user: User,
   displayName?: string

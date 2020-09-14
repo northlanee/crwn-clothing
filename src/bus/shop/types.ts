@@ -2,6 +2,7 @@ import { Collection, ProductItem } from "types";
 
 export type ShopState = {
   collections: Collection[];
+  currentCollection: null | Collection;
   products: ProductItem[];
   isFetching: boolean;
 };
@@ -18,6 +19,12 @@ type SetCollections = {
   payload: Collection[];
 };
 
+export const SET_CURRENT_COLLECTION = "@SHOP/SET_CURRENT_COLLECTION";
+type SetCurrentCollection = {
+  type: typeof SET_CURRENT_COLLECTION;
+  payload: null | Collection;
+};
+
 export const SET_PRODUCTS = "@SHOP/SET_PRODUCTS";
 type SetProducts = {
   type: typeof SET_PRODUCTS;
@@ -31,4 +38,5 @@ export type ShopActionTypes =
   | GetCollectionsAsync
   | SetCollections
   | SetFetching
-  | SetProducts;
+  | SetProducts
+  | SetCurrentCollection;

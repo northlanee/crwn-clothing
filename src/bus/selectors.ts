@@ -4,7 +4,12 @@ import {
   selectTotalPrice,
 } from "./cart/selectors";
 import { getCurrentUser, getIsFetching } from "./user/selectors";
-import { getCollections, getProducts, getFetching } from "./shop/selectors";
+import {
+  getCollections,
+  getProducts,
+  getFetching,
+  getCurrentCollection,
+} from "./shop/selectors";
 
 export const selectors = {
   cart: {
@@ -20,5 +25,6 @@ export const selectors = {
     getCollections,
     getProducts,
     getFetching,
+    getCurrentCollection,
   },
 };

@@ -5,7 +5,11 @@ import {
   increaseQuantity,
   decreaseQuantity,
 } from "./cart/actions";
-import { getCollectionsAsync, getPreviewProductsAsync } from "./shop/actions";
+import {
+  getCollectionsAsync,
+  getPreviewProductsAsync,
+  getProductsByCollection,
+} from "./shop/actions";
 
 export const actions = {
   user: {
@@ -21,5 +25,6 @@ export const actions = {
   shop: {
     getCollectionsAsync,
     getPreviewProductsAsync,
+    getProductsByCollection,
   },
 };

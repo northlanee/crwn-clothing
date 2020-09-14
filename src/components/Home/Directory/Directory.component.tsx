@@ -1,20 +1,12 @@
 import React, { FC } from "react";
-import { useSelector, useDispatch } from "react-redux";
 
-import { selectors } from "bus/selectors";
-import { actions } from "bus/actions";
 import { MenuItem, Spinner } from "components/common";
+import { useCollections } from "hooks";
 
 import "./Directory.styles.scss";
 
 const Directory: FC = () => {
-  const sections = useSelector(selectors.shop.getCollections);
-  const isFetching = useSelector(selectors.shop.getFetching);
-  const dispatch = useDispatch();
-
-  React.useEffect(() => {
-    dispatch(actions.shop.getCollectionsAsync());
-  }, [dispatch]);
+  const [sections, isFetching] = useCollections();
 
   if (isFetching) return <Spinner />;
 
