@@ -1,4 +1,5 @@
 import React, { FC } from "react";
+import { Link } from "react-router-dom";
 import cn from "classnames";
 
 import "./MenuItem.styles.scss";
@@ -22,10 +23,10 @@ const MenuItem: FC<PropTypes> = ({
         className="background-image"
         style={{ backgroundImage: `url(${imageUrl})` }}
       ></div>
-      <div className="content">
+      <Link to={`/shop/${routeName}`} className="content">
         <h1 className="title">{title}</h1>
         <span className="subtitle">SHOP NOW</span>
-      </div>
+      </Link>
     </div>
   );
 };

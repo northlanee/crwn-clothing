@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 
-import { MenuItem, Spinner } from "components/common";
+import { MenuItem } from "components/Home";
+import { Spinner } from "components/common";
 import { useCollections } from "hooks";
 
 import "./Directory.styles.scss";
