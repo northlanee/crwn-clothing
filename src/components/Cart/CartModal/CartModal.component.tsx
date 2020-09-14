@@ -1,13 +1,11 @@
 import React, { FC, ReactElement } from "react";
-import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
 import cn from "classnames";
 
-import { selectors } from "bus/selectors";
 import { Button } from "components/common";
 import { CartItem } from "components/Cart";
 
 import "./CartModal.styles.scss";
+import { useCartModal } from "hooks";
 
 type PropTypes = {
   show: boolean;
@@ -16,13 +14,7 @@ type PropTypes = {
 
 const CartModal: FC<PropTypes> = React.memo(
   ({ show, closeCart }: PropTypes): ReactElement => {
-    const cartItems = useSelector(selectors.cart.getCartItems);
-    const history = useHistory();
-
-    const checkoutRedirectHandler = React.useCallback(() => {
-      closeCart();
-      history.push("/checkout");
-    }, [history, closeCart]);
+    const [cartItems, checkoutRedirectHandler] = useCartModal(closeCart);
 
     const noItemsJSX = <div className="no-items">No items in cart yet!</div>;
 

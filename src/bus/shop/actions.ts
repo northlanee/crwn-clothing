@@ -59,26 +59,29 @@ export const getCollectionsAsync = (): ThunkAction<
   Action
 > => async (dispatch) => {
   dispatch(setFetching(true));
+  dispatch(setCollections([]));
   const collections: Collection[] = await fetchCollections();
   dispatch(setCollections(collections));
   dispatch(setFetching(false));
 };
 
-export const getProductsByCollection = (
+export const getProductsByCollectionAsync = (
   collentionName: string
 ): ThunkAction<void, AppState, unknown, Action> => async (dispatch) => {
   dispatch(setFetching(true));
+  dispatch(setCurrentCollection(null));
+  dispatch(setProducts([]));
+
   const collections: Collection[] = await fetchCollections();
   const collection = collections.filter(
     (c) => c.routeName === collentionName
   )[0];
+
   if (typeof collection !== "undefined") {
     dispatch(setCurrentCollection(collection));
     const products = await fetchProductsByCollection(collection.id);
     dispatch(setProducts(products));
-  } else {
-    dispatch(setCurrentCollection(null));
-    dispatch(setProducts([]));
   }
+
   dispatch(setFetching(false));
 };

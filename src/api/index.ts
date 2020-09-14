@@ -55,7 +55,7 @@ export const fetchProductsByCollection = async (collectionId: string) => {
 
 export const getUserProfileDocument = async (
   user: User,
-  displayName?: string
+  displayName?: string | undefined
 ) => {
   const userRef = firestore.doc(`users/${user.uid}`);
   const snapshot = await userRef.get();

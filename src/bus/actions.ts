@@ -8,7 +8,7 @@ import {
 import {
   getCollectionsAsync,
   getPreviewProductsAsync,
-  getProductsByCollection,
+  getProductsByCollectionAsync,
 } from "./shop/actions";
 
 export const actions = {
@@ -25,6 +25,6 @@ export const actions = {
   shop: {
     getCollectionsAsync,
     getPreviewProductsAsync,
-    getProductsByCollection,
+    getProductsByCollectionAsync,
   },
 };

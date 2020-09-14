@@ -20,7 +20,7 @@ export const useCollection: UseCollectionType = () => {
   const isFetching = useSelector(selectors.shop.getFetching);
 
   React.useEffect(() => {
-    dispatch(actions.shop.getProductsByCollection(collectionRouteName));
+    dispatch(actions.shop.getProductsByCollectionAsync(collectionRouteName));
   }, [dispatch, collectionRouteName]);
 
   return [collection, products, isFetching];
