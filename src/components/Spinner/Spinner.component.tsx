@@ -1,10 +1,15 @@
 import React, { FC, ReactElement } from "react";
+import cn from "classnames";
 
 import "./Spinner.styles.scss";
 
-const Spinner: FC = (): ReactElement => {
+type PropTypes = {
+  small?: boolean;
+};
+
+const Spinner: FC<PropTypes> = ({ small }: PropTypes): ReactElement => {
   return (
-    <div className="spinner-overlay">
+    <div className={cn("spinner-overlay", { small: small })}>
       <div className="spinner"></div>
     </div>
   );

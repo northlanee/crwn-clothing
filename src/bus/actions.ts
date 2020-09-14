@@ -1,4 +1,4 @@
-import { setCurrentUser } from "./user/actions";
+import { setCurrentUser, setUserAsync } from "./user/actions";
 import {
   addItem,
   removeItem,
@@ -10,6 +10,7 @@ import { getCollectionsAsync, getPreviewProductsAsync } from "./shop/actions";
 export const actions = {
   user: {
     setCurrentUser,
+    setUserAsync,
   },
   cart: {
     addItem,

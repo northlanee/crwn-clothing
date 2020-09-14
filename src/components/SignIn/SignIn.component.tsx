@@ -3,11 +3,8 @@ import { useFormik } from "formik";
 import { signInSchema } from "utils/formValidators";
 import { InputField, Button } from "components";
 
-import {
-  signInWithGoogle,
-  getUserProfileDocument,
-  auth,
-} from "firebase/firebase.utils";
+import { signInWithGoogle, auth } from "firebase/firebase.utils";
+import { getUserProfileDocument } from "api";
 
 import "./SignIn.styles.scss";
 

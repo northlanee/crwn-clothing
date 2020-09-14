@@ -4,9 +4,8 @@ import { useDispatch } from "react-redux";
 
 import { actions } from "bus/actions";
 
-import { auth, getUserProfileDocument } from "firebase/firebase.utils";
+import { auth } from "firebase/firebase.utils";
 import { User } from "firebase";
-import { User as appUser } from "types";
 
 import { Home, Shop, Auth, Checkout } from "pages";
 import { Header } from "components";
@@ -18,11 +17,7 @@ const App: FC = () => {
 
   React.useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(async (user: User | null) => {
-      if (user) {
-        const snapshot = await getUserProfileDocument(user);
-        const userData = snapshot.data() as appUser;
-        dispatch(actions.user.setCurrentUser(userData));
-      } else dispatch(actions.user.setCurrentUser(null));
+      dispatch(actions.user.setUserAsync(user));
     });
     return () => unsubscribe();
   }, [dispatch]);

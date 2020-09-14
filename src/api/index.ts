@@ -1,5 +1,6 @@
 import { firestore } from "firebase/firebase.utils";
 import { Collection, ProductItem } from "types";
+import { User } from "firebase";
 
 export const fetchCollections = async () => {
   const collectionsArr: Collection[] = [];
@@ -33,4 +34,26 @@ export const fetchPreviewProducts = async () => {
   );
 
   return previewProducts;
+};
+
+export const getUserProfileDocument = async (
+  user: User,
+  displayName?: string
+) => {
+  const userRef = firestore.doc(`users/${user.uid}`);
+  const snapshot = await userRef.get();
+  const name = displayName || user.displayName;
+
+  if (!snapshot.exists) {
+    const { email } = user;
+    const createdAt = new Date();
+
+    try {
+      await userRef.set({ id: user.uid, displayName: name, email, createdAt });
+    } catch (err) {
+      console.log(err.message);
+    }
+  }
+
+  return (await userRef.get()).data();
 };
