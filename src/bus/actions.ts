@@ -2,6 +2,7 @@ import {
   setCurrentUser,
   setUserAsync,
   updateCartItemAsync,
+  setCart,
 } from "./user/actions";
 
 import {
@@ -15,6 +16,7 @@ export const actions = {
     setCurrentUser,
     setUserAsync,
     updateCartItemAsync,
+    setCart,
   },
   shop: {
     getCollectionsAsync,

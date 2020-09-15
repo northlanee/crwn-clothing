@@ -1,7 +1,8 @@
 import React, { FC, ReactElement } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { selectors } from "bus/selectors";
+import { actions } from "bus/actions";
 import { Spinner } from "components/common";
 import { CartIcon, CartModal } from "components/Cart";
 
@@ -12,12 +13,16 @@ import "./Header.styles.scss";
 import { ReactComponent as Logo } from "assets/crown.svg";
 
 const Header: FC<{}> = (): ReactElement => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectors.user.getCurrentUser);
   const isFetching = useSelector(selectors.user.getIsFetching);
 
   const [showCartModal, setShowCartModal] = React.useState<boolean>(false);
 
-  const signOut = () => auth.signOut();
+  const signOut = () => {
+    dispatch(actions.user.setCart([]));
+    auth.signOut();
+  };
   const cartIconClickHandler = () => setShowCartModal(!showCartModal);
   const closeCartHandler = () => setShowCartModal(false);
 
