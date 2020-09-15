@@ -8,8 +8,8 @@ import { CheckoutItem, StripeButton } from "components/Checkout";
 import "./Checkout.styles.scss";
 
 const Checkout: FC = (): ReactElement => {
-  const totalPrice = useSelector(selectors.cart.selectTotalPrice);
-  const cartItems = useSelector(selectors.cart.getCartItems);
+  const totalPrice = useSelector(selectors.user.selectTotalPrice);
+  const cartItems = useSelector(selectors.user.getCartItems);
 
   if (cartItems.length > 0) {
     const cariItemsJSX = cartItems.map((item) => (

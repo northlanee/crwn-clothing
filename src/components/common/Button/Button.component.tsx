@@ -1,6 +1,8 @@
 import React, { FC, ReactElement, ReactNode } from "react";
 import cn from "classnames";
 
+import { Spinner } from "components/common";
+
 import "./Button.styles.scss";
 
 type PropTypes = {
@@ -8,21 +10,30 @@ type PropTypes = {
   type: "button" | "submit";
   googleSignIn?: true;
   inverted?: true;
+  loading?: true;
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button: FC<PropTypes> = React.memo(
-  ({ children, type, googleSignIn, inverted, ...otherProps }): ReactElement => {
+  ({
+    children,
+    type,
+    googleSignIn,
+    inverted,
+    loading,
+    ...otherProps
+  }): ReactElement => {
     return (
       <button
         className={cn("button", {
           "google-sign-in": googleSignIn,
+          blocked: loading,
           inverted: inverted,
         })}
         type={type}
         {...otherProps}
       >
-        {children}
+        {loading ? <Spinner small /> : children}
       </button>
     );
   }

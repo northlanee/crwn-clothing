@@ -3,10 +3,12 @@ import {
   SET_CURRENT_USER,
   UserState,
   SET_FETCHING,
+  SET_CART,
 } from "./types";
 
 const initialState: UserState = {
   currentUser: null,
+  cartItems: [],
   isFetching: false,
 };
 
@@ -19,6 +21,11 @@ export const userReducer = (
       return { ...state, currentUser: action.payload };
     case SET_FETCHING:
       return { ...state, isFetching: action.payload };
+    case SET_CART:
+      return {
+        ...state,
+        cartItems: action.payload,
+      };
     default:
       return state;
   }

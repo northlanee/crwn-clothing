@@ -3,3 +3,4 @@ export { useAuth } from "./useAuth";
 export { useCollection } from "./useCollection";
 export { useCollectionOverview } from "./useCollectionOverview";
 export { useCartModal } from "./useCartModal";
+export { useCart } from "./useCart";

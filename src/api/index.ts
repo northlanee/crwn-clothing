@@ -1,5 +1,5 @@
 import { firestore } from "firebase/firebase.utils";
-import { Collection, ProductItem } from "types";
+import { Collection, ProductItem, CartItem } from "types";
 import { User } from "firebase";
 
 export const fetchCollections = async () => {
@@ -73,4 +73,29 @@ export const getUserProfileDocument = async (
   }
 
   return (await userRef.get()).data();
+};
+
+const clearCart = async (userId: string) => {
+  const cart = firestore.collection(`users/${userId}/cart`).get();
+  (await cart).forEach(async (item) => {
+    await firestore.doc(`users/${userId}/cart/${item.id}`).delete();
+  });
+};
+
+export const setCartApi = async (cart: CartItem[], userId: string) => {
+  const user = firestore.doc(`users/${userId}`).get();
+  if ((await user).exists) {
+    await clearCart(userId);
+    cart.forEach(
+      async (item) =>
+        await firestore.collection(`users/${userId}/cart`).add(item)
+    );
+  }
+};
+
+export const getCart = async (userId: string) => {
+  const cart: CartItem[] = [];
+  const cartSnapshot = await firestore.collection(`users/${userId}/cart`).get();
+  cartSnapshot.forEach((item) => cart.push(item.data() as CartItem));
+  return cart;
 };

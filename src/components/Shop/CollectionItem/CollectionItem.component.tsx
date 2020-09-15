@@ -1,8 +1,9 @@
 import React, { FC, ReactElement } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { ProductItem } from "types";
 import { actions } from "bus/actions";
+import { selectors } from "bus/selectors";
 import { Button } from "components/common";
 
 import "./CollectionItem.styles.scss";
@@ -13,9 +14,11 @@ type PropTypes = {
 
 const CollectionItem: FC<PropTypes> = ({ item }: PropTypes): ReactElement => {
   const dispatch = useDispatch();
+  const user = useSelector(selectors.user.getCurrentUser);
+  const cart = useSelector(selectors.user.getCartItems);
 
   const addToCartHandler = () => {
-    dispatch(actions.cart.addItem(item));
+    dispatch(actions.user.updateCartItemAsync(cart, item, "add", user?.id));
   };
 
   return (

@@ -8,7 +8,7 @@ import { CartItem } from "types";
 type UseCartModal = (closeCart: () => void) => [CartItem[], () => void];
 
 export const useCartModal: UseCartModal = (closeCart) => {
-  const cartItems = useSelector(selectors.cart.getCartItems);
+  const cartItems = useSelector(selectors.user.getCartItems);
   const history = useHistory();
 
   const checkoutRedirectHandler = React.useCallback(() => {

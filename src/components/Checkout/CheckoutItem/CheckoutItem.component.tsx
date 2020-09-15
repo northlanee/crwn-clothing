@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { actions } from "bus/actions";
+import { selectors } from "bus/selectors";
 import { CartItem } from "types";
 
 import "./CheckoutItem.styles.scss";
@@ -12,15 +13,38 @@ type PropTypes = {
 const CheckoutItem: FC<PropTypes> = React.memo(
   ({ cartItem }: PropTypes): ReactElement => {
     const dispatch = useDispatch();
+    const cart = useSelector(selectors.user.getCartItems);
+    const user = useSelector(selectors.user.getCurrentUser);
 
     const removeItemHandler = () =>
-      dispatch(actions.cart.removeItem(cartItem.productItem.id));
+      dispatch(
+        actions.user.updateCartItemAsync(
+          cart,
+          cartItem.productItem,
+          "remove",
+          user?.id
+        )
+      );
 
     const increaseQuantityHandler = () =>
-      dispatch(actions.cart.increaseQuantity(cartItem.productItem.id));
+      dispatch(
+        actions.user.updateCartItemAsync(
+          cart,
+          cartItem.productItem,
+          "increase",
+          user?.id
+        )
+      );
 
     const decreaseQuantityHandler = () =>
-      dispatch(actions.cart.decreaseQuantity(cartItem.productItem.id));
+      dispatch(
+        actions.user.updateCartItemAsync(
+          cart,
+          cartItem.productItem,
+          "decrease",
+          user?.id
+        )
+      );
 
     const {
       productItem: { name, imageUrl, price },

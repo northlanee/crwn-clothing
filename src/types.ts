@@ -3,6 +3,7 @@ export type User = {
   email: string;
   displayName: string;
   createdAt: Date;
+  cart: CartItem[];
 } | null;
 
 export type Section = {
