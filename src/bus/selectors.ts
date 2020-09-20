@@ -1,23 +1,29 @@
 import {
+  getCurrentUser,
+  getIsFetching,
   selectCartItemsCount,
   getCartItems,
   selectTotalPrice,
-} from "./cart/selectors";
-import { getCurrentUser } from "./user/selectors";
-import { getCollections, getProducts, getFetching } from "./shop/selectors";
+} from "./user/selectors";
+import {
+  getCollections,
+  getProducts,
+  getFetching,
+  getCurrentCollection,
+} from "./shop/selectors";
 
 export const selectors = {
-  cart: {
+  user: {
+    getCurrentUser,
+    getIsFetching,
     selectCartItemsCount,
     getCartItems,
     selectTotalPrice,
-  },
-  user: {
-    getCurrentUser,
   },
   shop: {
     getCollections,
     getProducts,
     getFetching,
+    getCurrentCollection,
   },
 };

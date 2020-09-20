@@ -6,6 +6,10 @@
   align-items: center;
   margin: 50px auto 0;
 
+  &.no-items {
+    font-size: 48px;
+  }
+
   .checkout-header {
     width: 100%;
     padding: 10px 0;

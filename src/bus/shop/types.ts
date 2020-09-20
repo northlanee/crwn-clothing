@@ -2,33 +2,41 @@ import { Collection, ProductItem } from "types";
 
 export type ShopState = {
   collections: Collection[];
+  currentCollection: null | Collection;
   products: ProductItem[];
   isFetching: boolean;
 };
 
-export const SET_FETCHING = "SET_FETCHING";
+export const SET_FETCHING = "@SHOP/SET_FETCHING";
 type SetFetching = {
   type: typeof SET_FETCHING;
   payload: boolean;
 };
 
-export const SET_COLLECTIONS = "SET_COLLECTIONS";
+export const SET_COLLECTIONS = "@SHOP/SET_COLLECTIONS";
 type SetCollections = {
   type: typeof SET_COLLECTIONS;
   payload: Collection[];
 };
 
-export const SET_PRODUCTS = "SET_PRODUCTS";
+export const SET_CURRENT_COLLECTION = "@SHOP/SET_CURRENT_COLLECTION";
+type SetCurrentCollection = {
+  type: typeof SET_CURRENT_COLLECTION;
+  payload: null | Collection;
+};
+
+export const SET_PRODUCTS = "@SHOP/SET_PRODUCTS";
 type SetProducts = {
   type: typeof SET_PRODUCTS;
   payload: ProductItem[];
 };
 
-export const GET_COLLECTIONS_ASYNC = "GET_COLLECTIONS_ASYNC";
+export const GET_COLLECTIONS_ASYNC = "@SHOP/GET_COLLECTIONS_ASYNC";
 type GetCollectionsAsync = { type: typeof GET_COLLECTIONS_ASYNC };
 
 export type ShopActionTypes =
   | GetCollectionsAsync
   | SetCollections
   | SetFetching
-  | SetProducts;
+  | SetProducts
+  | SetCurrentCollection;

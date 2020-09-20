@@ -1,7 +1,7 @@
 import React, { FC, ReactElement } from "react";
 import { Route, useRouteMatch } from "react-router-dom";
 
-import { CollectionOverview } from "components";
+import { CollectionOverview } from "components/Shop";
 import { Collection } from "pages";
 
 const Shop: FC = (): ReactElement => {

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { selectors } from "bus/selectors";
 
-import { SignIn, SignUp } from "components";
+import { SignIn, SignUp } from "components/Auth";
 
 import "./Auth.styles.scss";
 

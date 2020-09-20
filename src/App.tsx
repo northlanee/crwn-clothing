@@ -1,40 +1,48 @@
-import React, { FC } from "react";
+import React, { FC, Suspense } from "react";
 import { Switch, Route } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
-import { actions } from "bus/actions";
+import { useAuth } from "hooks";
 
-import { auth, getUserProfileDocument } from "firebase/firebase.utils";
-import { User } from "firebase";
-import { User as appUser } from "types";
-
-import { Home, Shop, Auth, Checkout } from "pages";
-import { Header } from "components";
+import { Home } from "pages";
+import { Header, Spinner } from "components/common";
 
 import "./App.css";
 
-const App: FC = () => {
-  const dispatch = useDispatch();
+const Auth = React.lazy(() => import("./pages/Auth/Auth.component"));
+const Checkout = React.lazy(
+  () => import("./pages/Checkout/Checkout.component")
+);
+const Shop = React.lazy(() => import("./pages/Shop/Shop.component"));
 
-  React.useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user: User | null) => {
-      if (user) {
-        const snapshot = await getUserProfileDocument(user);
-        const userData = snapshot.data() as appUser;
-        dispatch(actions.user.setCurrentUser(userData));
-      } else dispatch(actions.user.setCurrentUser(null));
-    });
-    return () => unsubscribe();
-  }, [dispatch]);
+const App: FC = () => {
+  useAuth();
+
+  const authRender = () => (
+    <Suspense fallback={<Spinner />}>
+      <Auth />
+    </Suspense>
+  );
+
+  const checkoutRender = () => (
+    <Suspense fallback={<Spinner />}>
+      <Checkout />
+    </Suspense>
+  );
+
+  const shopRender = () => (
+    <Suspense fallback={<Spinner />}>
+      <Shop />
+    </Suspense>
+  );
 
   return (
     <div className="App">
       <Header />
       <Switch>
         <Route path="/" component={Home} exact />
-        <Route path="/shop" component={Shop} />
-        <Route path="/auth" component={Auth} exact />
-        <Route path="/checkout" component={Checkout} exact />
+        <Route path="/auth" render={authRender} exact />
+        <Route path="/checkout" render={checkoutRender} exact />
+        <Route path="/shop" render={shopRender} />
       </Switch>
     </div>
   );
